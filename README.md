@@ -1,7 +1,7 @@
 # getReposInfo
 get information about several repositories on github at once
 
-###Steps
+### Steps
 
 1. This is a maven project. Import (Eclipse) or build (command line)
 
