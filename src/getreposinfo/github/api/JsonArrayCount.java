@@ -3,6 +3,8 @@ package getreposinfo.github.api;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 
+import getreposinfo.util.GetResponse;
+
 public abstract class JsonArrayCount {
 
 	private static final String PAGE_PATTERN = "?per_page=100&page=";

@@ -1,4 +1,4 @@
-package getreposinfo.github.api;
+package getreposinfo.util;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -11,6 +11,15 @@ public class GetResponse {
 	private String url = "";
 
 	public GetResponse(String url) {
+		String token = PropertiesManager.getProperty("github.token");
+		if (token != null && !token.isEmpty()) {
+			if (url.contains("?"))
+				url += "&";
+			else
+				url += "?";
+			url += "access_token=" + token;
+		}
+		
 		this.url = url;
 	}
 
@@ -18,14 +27,14 @@ public class GetResponse {
 		InputStream inputStream = new URL(this.url).openStream();
 
 		BufferedReader bReader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
-		String jsonString = this.getJsonString(bReader);
+		String jsonString = this.buildJsonString(bReader);
 
 		bReader.close();
 
 		return jsonString;
 	}
 
-	private String getJsonString(BufferedReader bReader) throws Exception {
+	private String buildJsonString(BufferedReader bReader) throws Exception {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		String line = "";

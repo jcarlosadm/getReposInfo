@@ -12,9 +12,12 @@
 hs_err_pid*
 /bin/
 /target/
+/outputs/
 
 /.settings/
 .classpath
 .project
 
 *.json
+results.csv
+general.test.config
