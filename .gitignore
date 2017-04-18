@@ -19,5 +19,6 @@ hs_err_pid*
 .project
 
 *.json
+!test.json
 results.csv
 general.test.config
